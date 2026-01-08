@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jane Doe - CS/Cybersecurity Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
-        header { background: #1a73e8; color: #fff; padding: 20px 0; text-align: center; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
-        section { padding: 40px 20px; max-width: 900px; margin: auto; }
-        h2 { color: #1a73e8; }
-        .project { margin-bottom: 20px; }
-        footer { background: #333; color: #fff; text-align: center; padding: 10px; }
-        a { color: #1a73e8; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jane Doe - Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Jane Doe</h1>
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Jane Doe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I’m Jane Doe, a high school junior passionate about cybersecurity, coding, and robotics. I love building apps, solving CTF challenges, and exploring computer systems. My goal is to study Computer Science and Cybersecurity at Georgia Tech.</p>
+<!-- Hero Section -->
+<section class="hero text-center d-flex align-items-center justify-content-center">
+  <div class="container">
+    <h1 class="display-4">Hi, I’m Jane Doe</h1>
+    <p class="lead">High school student passionate about Computer Science, Cybersecurity, and Robotics. Aspiring to study at Georgia Tech.</p>
+    <a href="projects.html" class="btn btn-lg btn-light mt-3">View My Projects</a>
+  </div>
 </section>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>Personal Website</h3>
-        <p>Built my own portfolio site using HTML, CSS, and JavaScript. Includes project showcase and blog.</p>
-    </div>
-    <div class="project">
-        <h3>Python Automation Scripts</h3>
-        <p>Scripts to automate file organization and web scraping.</p>
-    </div>
-    <div class="project">
-        <h3>CTF Challenges</h3>
-        <p>Completed 10+ TryHackMe rooms and HackTheBox challenges. Writeups on GitHub.</p>
-    </div>
-    <div class="project">
-        <h3>Arduino Home Security System</h3>
-        <p>Built a motion-detection system that sends email alerts when motion is detected.</p>
-    </div>
+<!-- About Me Section -->
+<section class="container mt-5 pt-5">
+  <h2 class="text-primary mb-4">About Me</h2>
+  <p>I love building apps, solving CTF challenges, and exploring computer systems. My goal is to grow as a developer and cybersecurity enthusiast and pursue a Computer Science degree at Georgia Tech.</p>
 </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:janedoe@email.com">janedoe@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/janedoe" target="_blank">github.com/janedoe</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/janedoe" target="_blank">linkedin.com/in/janedoe</a></p>
-</section>
-
-<footer>
-    <p>© 2026 Jane Doe</p>
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <p>© 2026 Jane Doe</p>
 </footer>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS (optional for interactivity) -->
+<script src="js/script.js"></script>
 </body>
 </html>
