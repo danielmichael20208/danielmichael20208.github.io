@@ -96,6 +96,18 @@ AOS.init({
 });
 </script>
 
+<script>
+// Automatically highlight the active navbar link
+const currentPage = window.location.pathname.split("/").pop(); // get current file name
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+  const href = link.getAttribute("href");
+  if(href === currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+
 </body>
 </html>
-
