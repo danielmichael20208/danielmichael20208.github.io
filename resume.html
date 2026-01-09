@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Resume | Daniel Michael</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,17 +23,17 @@
   </div>
 </nav>
 
-<section class="hero text-center">
-  <h1>My Resume</h1>
-  <p>View or download my resume below.</p>
+<section class="hero text-center" data-aos="fade-down">
+  <h1 data-aos="zoom-in">My Resume</h1>
+  <p data-aos="fade-up">View or download my resume below.</p>
 </section>
 
 <section class="container">
-  <div class="project-card">
+  <div class="project-card" data-aos="fade-up">
     <iframe src="resume.pdf" width="100%" height="800px"></iframe>
   </div>
 
-  <div style="text-align:center; margin-top:20px;">
+  <div style="text-align:center; margin-top:20px;" data-aos="zoom-in">
     <a class="project-btn" href="resume.pdf" download>Download Resume (PDF)</a>
   </div>
 </section>
@@ -37,6 +41,16 @@
 <footer class="text-center py-3">
   <p>© 2026 Daniel Michael</p>
 </footer>
+
+<!-- Animation Engine -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true,
+  easing: 'ease-out-cubic'
+});
+</script>
 
 </body>
 </html>
