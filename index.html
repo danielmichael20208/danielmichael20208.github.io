@@ -14,22 +14,16 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand btn-main nav-link me-2" href="index.html">Daniel Michael</a>
+<nav class="main-navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">Daniel Michael</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="ms-auto d-flex">
-        <a class="btn-main nav-link me-2" href="projects.html">Projects</a>
-        <a class="btn-main nav-link me-2" href="resume.html">Resume</a>
-        <a class="btn-main nav-link me-2" href="labs.html">Cyber Labs</a>
-        <a class="btn-main nav-link me-2" href="terminal.html">Terminal</a>
-        <a class="btn-main nav-link" href="contact.html">Contact</a>
-      </div>
+    <div class="nav-links">
+      <a href="projects.html" class="nav-btn">Projects</a>
+      <a href="resume.html" class="nav-btn">Resume</a>
+      <a href="labs.html" class="nav-btn">Cyber Labs</a>
+      <a href="terminal.html" class="nav-btn">Terminal</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
     </div>
   </div>
 </nav>
@@ -106,14 +100,15 @@ AOS.init({
 <script>
 // Automatically highlight the active navbar link
 <script>
-const currentPage = location.pathname.split("/").pop();
-document.querySelectorAll(".navbar .nav-link").forEach(link => {
-  if(link.getAttribute("href") === currentPage){
-    link.classList.add("active");
-  }
-});
-</script>
+  const links = document.querySelectorAll(".nav-btn");
+  const current = location.pathname.split("/").pop();
 
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      link.classList.add("active");
+    }
+  });
+</script>
 
 </body>
 </html>
