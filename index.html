@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,30 +25,33 @@
   </div>
 </nav>
 
-<section class="hero text-center d-flex align-items-center justify-content-center" style="height:100vh;">
+<!-- Hero -->
+<section class="hero text-center d-flex align-items-center justify-content-center" style="height:100vh;" data-aos="fade-down">
   <div class="container">
-    <h1 class="display-4">Hi, I'm Daniel Michael</h1>
-    <p class="lead">Cybersecurity & Computer Science Student</p>
-    <p>Georgia Tech Dean of Engineering Work Study • FTC Robotics Programmer</p>
-    <a class="btn-main" href="projects.html">View My Projects</a>
+    <h1 class="display-4" data-aos="zoom-in">Hi, I'm Daniel Michael</h1>
+    <p class="lead" data-aos="fade-up">Cybersecurity & Computer Science Student</p>
+    <p data-aos="fade-up" data-aos-delay="150">Georgia Tech Dean of Engineering Work Study • FTC Robotics Programmer</p>
+    <a class="btn-main" href="projects.html" data-aos="zoom-in" data-aos-delay="250">View My Projects</a>
   </div>
 </section>
 
+<!-- About -->
 <section class="container text-center">
-  <h2 style="color:#22d3ee;">About Me</h2>
-  <p>
+  <h2 style="color:#22d3ee;" data-aos="fade-up">About Me</h2>
+  <p data-aos="fade-up" data-aos-delay="100">
     I am a sophomore high school student passionate about cybersecurity, robotics,
     and engineering. I work at Georgia Tech’s Dean of Engineering Office and compete
     in FTC Robotics at the Atlanta–Marist League (Top 16 teams).
   </p>
 </section>
 
+<!-- Badges -->
 <section class="container">
-  <h2 class="text-center mb-4" style="color:#22d3ee;">Digital Badges & Certifications</h2>
+  <h2 class="text-center mb-4" style="color:#22d3ee;" data-aos="fade-up">Digital Badges & Certifications</h2>
 
   <div class="row justify-content-center">
 
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="zoom-in">
       <div class="badge-card text-center">
         <h3>TryHackMe</h3>
         <p>Cybersecurity Learning Path</p>
@@ -52,7 +59,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="150">
       <div class="badge-card text-center">
         <h3>Google Cybersecurity</h3>
         <p>Professional Certificate</p>
@@ -60,7 +67,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
       <div class="badge-card text-center">
         <h3>FTC Robotics</h3>
         <p>Atlanta–Marist League Top 16</p>
@@ -76,5 +83,16 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Animation Engine -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true,
+  easing: 'ease-out-cubic'
+});
+</script>
+
 </body>
 </html>
