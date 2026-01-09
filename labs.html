@@ -16,9 +16,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand btn-main nav-link me-2" href="index.html">Daniel Michael</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="ms-auto d-flex">
         <a class="btn-main nav-link me-2" href="projects.html">Projects</a>
@@ -30,7 +32,6 @@
     </div>
   </div>
 </nav>
-
 
 <section class="hero text-center d-flex align-items-center justify-content-center" style="height:250px;" data-aos="fade-down">
   <div class="container">
@@ -86,5 +87,14 @@ AOS.init({
 });
 </script>
 
+<script>
+const currentPage = location.pathname.split("/").pop();
+document.querySelectorAll(".navbar .nav-link").forEach(link => {
+  if(link.getAttribute("href") === currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+ 
 </body>
 </html>
