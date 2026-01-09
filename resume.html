@@ -16,6 +16,7 @@
   <div class="container">
     <a class="navbar-brand" href="index.html">Daniel Michael</a>
     <div>
+      <a class="nav-link" href="resume.html">Resume</a>
       <a class="btn-main me-2" href="index.html">Home</a>
       <a class="btn-main me-2" href="projects.html">Projects</a>
       <a class="btn-main me-2" href="terminal.html">Terminal</a>
@@ -50,6 +51,19 @@ AOS.init({
   duration: 1000,
   once: true,
   easing: 'ease-out-cubic'
+});
+</script>
+
+<script>
+// Automatically highlight the active navbar link
+const currentPage = window.location.pathname.split("/").pop(); // get current file name
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+  const href = link.getAttribute("href");
+  if(href === currentPage){
+    link.classList.add("active");
+  }
 });
 </script>
 
