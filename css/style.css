@@ -254,3 +254,54 @@ body{
   box-shadow:0 0 25px rgba(56,189,248,1);
 }
 
+/* ===== GOLD CYBER THEME OVERRIDE ===== */
+:root{
+  --gold:#facc15;
+  --gold-glow:0 0 12px rgba(250,204,21,.6);
+}
+
+/* Text color swaps */
+.text-primary,
+h1,h2,h3,h4,h5,h6{
+  color:var(--gold) !important;
+}
+
+/* Buttons */
+.btn-main,
+.project-btn,
+.btn-primary{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  box-shadow:var(--gold-glow);
+  border:none !important;
+}
+
+.btn-main:hover,
+.project-btn:hover,
+.btn-primary:hover{
+  background:#fde047 !important;
+  box-shadow:0 0 25px rgba(250,204,21,.9);
+  transform:translateY(-2px);
+}
+
+/* Navbar links */
+.navbar a{
+  color:#fde047 !important;
+}
+
+.navbar a.active{
+  background:var(--gold);
+  color:#020617 !important;
+  box-shadow:0 0 15px rgba(250,204,21,.7);
+}
+
+/* Cards */
+.project-card{
+  box-shadow:0 0 40px rgba(250,204,21,.12) !important;
+}
+
+/* Badges */
+.badge{
+  background:var(--gold) !important;
+  color:#020617 !important;
+}
