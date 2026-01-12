@@ -305,3 +305,55 @@ h1,h2,h3,h4,h5,h6{
   background:var(--gold) !important;
   color:#020617 !important;
 }
+
+/* ===== BLACK-GOLD BACKGROUND UPGRADE ===== */
+body{
+  background:
+    radial-gradient(circle at top, rgba(250,204,21,.12), transparent 55%),
+    linear-gradient(180deg, #020617, #000000);
+  color:#f8fafc;
+}
+
+/* HERO / SECTIONS */
+.hero{
+  background:
+    radial-gradient(circle at center, rgba(250,204,21,.18), transparent 60%),
+    linear-gradient(180deg,#020617,#000000);
+}
+
+/* NAVBAR GOLD BAR */
+.navbar{
+  background:
+    linear-gradient(90deg,#020617,#000000,#020617) !important;
+  border-bottom:1px solid rgba(250,204,21,.5);
+  box-shadow:0 0 40px rgba(250,204,21,.25);
+}
+
+/* Navbar brand */
+.navbar-brand{
+  background:var(--gold);
+  color:#020617 !important;
+  padding:8px 18px;
+  border-radius:12px;
+  font-weight:700;
+  box-shadow:0 0 18px rgba(250,204,21,.9);
+}
+
+/* Navbar buttons */
+.navbar .btn-main{
+  background:transparent !important;
+  color:#fde047 !important;
+  border:1px solid rgba(250,204,21,.6) !important;
+}
+
+.navbar .btn-main:hover{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  box-shadow:0 0 25px rgba(250,204,21,.9);
+}
+
+/* Navbar active */
+.navbar .btn-main.active{
+  background:var(--gold) !important;
+  color:#020617 !important;
+}
