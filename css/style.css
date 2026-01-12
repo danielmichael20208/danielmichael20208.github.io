@@ -229,6 +229,26 @@ footer {
 
 .nav-btn:hover{ transform:translateY(-3px) scale(1.05); }
 
+/* ==== FORCE CYBER LABS PAGE DARK MODE ==== */
+body{
+  background:#020617 !important;
+  color:white;
+}
+
+.container{
+  background:transparent !important;
+}
+
+.project-card{
+  background:linear-gradient(145deg,#020617,#030a1a) !important;
+  color:white !important;
+  box-shadow:0 0 35px rgba(0,255,255,.15);
+}
+
+.project-card h2{ color:#22d3ee; }
+.project-card ul li{ color:#cbd5f5; }
+.project-card p{ color:#cbd5f5; }
+
 .nav-btn.active{
   background:#38bdf8;
   box-shadow:0 0 25px rgba(56,189,248,1);
