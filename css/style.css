@@ -1,134 +1,106 @@
-/* ===============================
-   GLOBAL RESET
-================================*/
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-  font-family:'Segoe UI', sans-serif;
-}
-
-/* ===============================
-   ROOT THEME COLORS (GOLD)
-================================*/
 :root{
-  --main:#facc15;       /* gold */
-  --main-dark:#eab308;  /* darker gold */
-  --bg:#020617;        /* gold-black */
-  --card:#020617;
-  --text:#f8fafc;
+  --gold:#facc15;
+  --gold-soft:#fde047;
+  --dark:#020617;
+  --dark2:#000000;
 }
 
-/* ===============================
-   BODY
-================================*/
+/* Global */
 body{
-  background:radial-gradient(circle at top, rgba(250,204,21,.12), transparent 60%),
-             linear-gradient(180deg,#020617,#000000);
-  color:var(--text);
+  margin:0;
+  font-family:Segoe UI,system-ui,sans-serif;
+  background:
+    radial-gradient(circle at center, rgba(250,204,21,.15), transparent 60%),
+    linear-gradient(180deg,#020617,#000000);
+  color:#f8fafc;
 }
 
-/* ===============================
-   NAVBAR
-================================*/
+/* Navbar */
 .navbar{
-  background:linear-gradient(90deg,#020617,#000000,#020617);
+  background:linear-gradient(90deg,#020617,#000000,#020617)!important;
   border-bottom:1px solid rgba(250,204,21,.5);
-  box-shadow:0 0 25px rgba(250,204,21,.35);
+  box-shadow:0 0 40px rgba(250,204,21,.25);
 }
-
 .navbar-brand{
-  background:var(--main);
-  color:#020617;
-  padding:8px 18px;
-  border-radius:14px;
-  box-shadow:0 0 25px rgba(250,204,21,.9);
-  font-weight:700;
-}
-
-.btn-main{
-  background:transparent;
-  color:#fde047;
-  border:1px solid rgba(250,204,21,.6);
+  background:var(--gold);
+  color:#020617!important;
   padding:8px 18px;
   border-radius:12px;
-  transition:.25s;
+  font-weight:700;
+  box-shadow:0 0 18px rgba(250,204,21,.9);
 }
-
+.btn-main{
+  text-decoration:none;
+  color:var(--gold-soft)!important;
+  border:1px solid rgba(250,204,21,.6);
+  padding:10px 20px;
+  border-radius:14px;
+  margin:4px;
+  transition:.3s;
+}
 .btn-main:hover{
-  background:var(--main);
-  color:#020617;
-  box-shadow:0 0 25px rgba(250,204,21,.8);
+  background:var(--gold);
+  color:#020617!important;
+  box-shadow:0 0 25px rgba(250,204,21,.9);
 }
-
 .btn-main.active{
-  background:var(--main);
-  color:#020617;
+  background:var(--gold);
+  color:#020617!important;
 }
 
-/* ===============================
-   HERO
-================================*/
+/* Hero */
 .hero{
   background:
-    radial-gradient(circle at center, rgba(250,204,21,.15), transparent 65%),
+    radial-gradient(circle at center, rgba(250,204,21,.18), transparent 60%),
     linear-gradient(180deg,#020617,#000000);
   color:white;
 }
 
-/* ===============================
-   CARDS
-================================*/
-.project-card,.badge-card{
-  background:linear-gradient(180deg,#020617,#000000);
-  border:1px solid rgba(250,204,21,.4);
-  box-shadow:0 0 35px rgba(250,204,21,.18);
-  border-radius:18px;
+/* Cards */
+.project-card,.badge-card,.terminal-box{
+  background:linear-gradient(145deg,#020617,#000000);
+  border-radius:22px;
   padding:25px;
+  box-shadow:0 0 35px rgba(250,204,21,.25);
+  border:1px solid rgba(250,204,21,.4);
 }
 
-/* ===============================
-   BUTTONS
-================================*/
+/* Headings */
+h1,h2,h3,h4{
+  color:var(--gold);
+}
+
+/* Buttons */
 .project-btn{
   display:inline-block;
-  background:var(--main);
-  color:#020617;
   padding:10px 20px;
   border-radius:14px;
-  font-weight:600;
+  border:1px solid rgba(250,204,21,.6);
+  color:var(--gold-soft);
   text-decoration:none;
-  box-shadow:0 0 25px rgba(250,204,21,.7);
+  transition:.3s;
 }
-
 .project-btn:hover{
-  background:var(--main-dark);
-}
-
-/* ===============================
-   BADGES
-================================*/
-.badge{
-  background:#facc15;
+  background:var(--gold);
   color:#020617;
+  box-shadow:0 0 20px rgba(250,204,21,.8);
 }
 
-/* ===============================
-   FOOTER
-================================*/
+/* Badges */
+.badge{
+  background:var(--gold);
+  color:#020617;
+  border-radius:10px;
+  padding:6px 12px;
+}
+
+/* Footer */
 footer{
-  background:#020617;
-  color:#facc15;
+  color:var(--gold);
 }
 
-/* ===============================
-   LINKS
-================================*/
-a{
-  color:#fde047;
-}
-
-a:hover{
-  color:#facc15;
+/* Terminal */
+.terminal-box{
+  font-family:monospace;
+  color:var(--gold-soft);
 }
