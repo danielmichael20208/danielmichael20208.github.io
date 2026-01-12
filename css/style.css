@@ -65,8 +65,8 @@ section {
 
 /* ---------- Footer ---------- */
 footer {
-  background: #020617;
-  color: #94a3b8;
+  background: #000000;
+  color: #000000;
 }
 
 /* ===== Skill Bars ===== */
@@ -429,3 +429,4 @@ html, body{
 h1,h2,h3{
   color:#fde047 !important;
 }
+
