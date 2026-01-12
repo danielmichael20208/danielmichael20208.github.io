@@ -2,77 +2,29 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  /* Deep Black/Navy Gradient Background */
-  background: radial-gradient(circle at top, rgba(250,204,21,.12), transparent 55%), linear-gradient(180deg, #020617, #000000);
+  background: #020617;
   color: #e5e7eb;
 }
 
 a {
   text-decoration: none;
-  color: #facc15; /* Gold */
+  color: #22d3ee;
 }
 
 a:hover {
-  color: #fde047; /* Lighter Gold */
+  color: #67e8f9;
 }
 
-/* ---------- Navbar (Gold Background) ---------- */
-.navbar, .main-navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #facc15 !important; /* Yellowish-Gold */
-  box-shadow: 0 0 25px rgba(250,204,21,.6);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0; 
+/* ---------- Navbar ---------- */
+.navbar {
+  background: #020617 !important;
+  box-shadow: 0 0 15px rgba(34,211,238,.3);
 }
-
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  width: 100%;
-}
-
-/* Navbar Links (Dark text for contrast against Gold) */
-.nav-link, .navbar a, .nav-btn {
-  color: #020617 !important; 
-  font-weight: 700;
-}
-
-.nav-logo {
-  background: #020617; /* Black box for logo */
-  color: #facc15 !important; /* Gold text */
-  padding: 12px 22px;
-  border-radius: 14px;
-  font-weight: 800;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  transition: .25s;
-}
-
-.nav-logo:hover { transform: scale(1.05); }
-
-.nav-btn {
-  background: #020617; /* Black button */
-  color: #facc15 !important; /* Gold text */
-  padding: 10px 18px;
-  border-radius: 12px;
-  transition: .25s;
-}
-
-.nav-btn:hover { transform: translateY(-3px) scale(1.05); }
 
 /* ---------- Hero ---------- */
 .hero {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: white;
-  padding-top: 120px; /* Spacing for fixed navbar */
 }
 
 /* ---------- Sections ---------- */
@@ -82,55 +34,50 @@ section {
 
 /* ---------- Cards ---------- */
 .project-card, .badge-card {
-  background: linear-gradient(145deg, #020617, #030a1a);
-  border: 1px solid rgba(250,204,21,.3); /* Gold Border */
+  background: #020617;
   border-radius: 18px;
   padding: 25px;
-  box-shadow: 0 0 25px rgba(250,204,21,.15); /* Gold Glow */
+  box-shadow: 0 0 25px rgba(34,211,238,.25);
   transition: transform .3s ease;
-  color: #fff;
 }
 
 .project-card:hover, .badge-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 35px rgba(250,204,21,.25);
 }
 
 .project-card h2, .badge-card h3 {
-  color: #facc15; /* Gold */
+  color: #22d3ee;
 }
 
 /* ---------- Buttons ---------- */
 .project-btn, .btn-main {
-  background: #facc15; /* Gold */
-  color: #020617; /* Black Text */
+  background: #22d3ee;
+  color: black;
   padding: 10px 20px;
   border-radius: 10px;
   font-weight: bold;
   display: inline-block;
-  box-shadow: 0 0 15px rgba(250,204,21,.4);
 }
 
 .project-btn:hover, .btn-main:hover {
-  background: #fde047;
-  transform: translateY(-2px);
+  background: #67e8f9;
 }
 
-/* ---------- Footer (Pure Black & White) ---------- */
+/* ---------- Footer ---------- */
 footer {
-  background: #000000 !important;
-  color: #FFFFFF !important;
-  padding: 40px 0;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  background: #000000;
+  color: #FFFFFF;
 }
 
 /* ===== Skill Bars ===== */
-.skill-section { padding: 80px 20px; }
+
+.skill-section {
+  padding: 80px 20px;
+}
 
 .skill-title {
   text-align: center;
-  color: #facc15; /* Gold */
+  color: #00b7ff;
   font-weight: 700;
   letter-spacing: 2px;
   margin-bottom: 40px;
@@ -141,14 +88,13 @@ footer {
   border-radius: 16px;
   padding: 25px;
   margin-bottom: 25px;
-  box-shadow: 0 0 25px rgba(250,204,21,0.15);
-  border: 1px solid rgba(250,204,21,0.2);
+  box-shadow: 0 0 25px rgba(0,170,255,0.15);
 }
 
 .skill-label {
   display: flex;
   justify-content: space-between;
-  color: #facc15;
+  color: #00c6ff;
   font-weight: 600;
 }
 
@@ -164,8 +110,7 @@ footer {
 .skill-fill {
   height: 100%;
   width: 0;
-  /* Gold Gradient */
-  background: linear-gradient(90deg, #facc15, #ca8a04);
+  background: linear-gradient(90deg,#00c6ff,#0072ff);
   border-radius: 20px;
   animation: fillBar 2s forwards;
 }
@@ -176,11 +121,14 @@ footer {
 }
 
 /* ===== Terminal Simulator ===== */
-.terminal-section { padding: 90px 20px; }
+
+.terminal-section {
+  padding: 90px 20px;
+}
 
 .terminal-title {
   text-align: center;
-  color: #facc15;
+  color: #00eaff;
   margin-bottom: 30px;
   letter-spacing: 2px;
 }
@@ -188,25 +136,23 @@ footer {
 .terminal-window {
   background: #020b17;
   border-radius: 18px;
-  border: 1px solid #facc15;
-  box-shadow: 0 0 35px rgba(250,204,21,.25);
+  box-shadow: 0 0 35px rgba(0,200,255,0.25);
   overflow: hidden;
   max-width: 850px;
   margin: auto;
 }
 
 .terminal-header {
-  background: #1a1a00; /* Dark Yellow/Black */
-  color: #facc15;
+  background: #051c2f;
+  color: #00eaff;
   padding: 12px;
   font-weight: 700;
-  border-bottom: 1px solid rgba(250,204,21,.3);
 }
 
 .terminal-body {
   min-height: 300px;
   padding: 20px;
-  color: #fef08a; /* Pale Yellow Text */
+  color: #9affff;
   font-family: monospace;
   white-space: pre-line;
 }
@@ -218,7 +164,7 @@ footer {
 }
 
 .terminal-prompt {
-  color: #facc15;
+  color: #00ffcc;
   margin-right: 8px;
   font-weight: bold;
 }
@@ -227,7 +173,259 @@ footer {
   background: transparent;
   border: none;
   outline: none;
-  color: #fef08a;
+  color: #00ffcc;
   width: 100%;
   font-family: monospace;
+}
+
+.nav-link.active {
+  background: rgba(34,211,238,0.15);
+  box-shadow: 0 0 15px rgba(34,211,238,0.5);
+  border-radius: 10px;
+}
+
+.main-navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:linear-gradient(90deg,#020617,#020617,#020617);
+  z-index:999;
+  box-shadow:0 10px 40px rgba(0,0,0,.8);
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.nav-logo{
+  background:#22d3ee;
+  padding:12px 22px;
+  border-radius:14px;
+  font-weight:800;
+  text-decoration:none;
+  color:#020617;
+  box-shadow:0 0 25px rgba(34,211,238,.8);
+  transition:.25s;
+}
+
+.nav-logo:hover{ transform:scale(1.05); }
+
+.nav-links{ display:flex; gap:12px; }
+
+.nav-btn{
+  background:#22d3ee;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+  color:#020617;
+  transition:.25s;
+}
+
+.nav-btn:hover{ transform:translateY(-3px) scale(1.05); }
+
+/* ==== FORCE CYBER LABS PAGE DARK MODE ==== */
+body{
+  background:#020617 !important;
+  color:white;
+}
+
+.container{
+  background:transparent !important;
+}
+
+.project-card{
+  background:linear-gradient(145deg,#020617,#030a1a) !important;
+  color:white !important;
+  box-shadow:0 0 35px rgba(0,255,255,.15);
+}
+
+.project-card h2{ color:#22d3ee; }
+.project-card ul li{ color:#cbd5f5; }
+.project-card p{ color:#cbd5f5; }
+
+.nav-btn.active{
+  background:#38bdf8;
+  box-shadow:0 0 25px rgba(56,189,248,1);
+}
+
+/* ===== GOLD CYBER THEME OVERRIDE ===== */
+:root{
+  --gold:#facc15;
+  --gold-glow:0 0 12px rgba(250,204,21,.6);
+}
+
+/* Text color swaps */
+.text-primary,
+h1,h2,h3,h4,h5,h6{
+  color:var(--gold) !important;
+}
+
+/* Buttons */
+.btn-main,
+.project-btn,
+.btn-primary{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  box-shadow:var(--gold-glow);
+  border:none !important;
+}
+
+.btn-main:hover,
+.project-btn:hover,
+.btn-primary:hover{
+  background:#fde047 !important;
+  box-shadow:0 0 25px rgba(250,204,21,.9);
+  transform:translateY(-2px);
+}
+
+/* Navbar links */
+.navbar a{
+  color:#fde047 !important;
+}
+
+.navbar a.active{
+  background:var(--gold);
+  color:#020617 !important;
+  box-shadow:0 0 15px rgba(250,204,21,.7);
+}
+
+/* Cards */
+.project-card{
+  box-shadow:0 0 40px rgba(250,204,21,.12) !important;
+}
+
+/* Badges */
+.badge{
+  background:var(--gold) !important;
+  color:#020617 !important;
+}
+
+/* ===== BLACK-GOLD BACKGROUND UPGRADE ===== */
+body{
+  background:
+    radial-gradient(circle at top, rgba(250,204,21,.12), transparent 55%),
+    linear-gradient(180deg, #020617, #000000);
+  color:#f8fafc;
+}
+
+/* HERO / SECTIONS */
+.hero{
+  background:
+    radial-gradient(circle at center, rgba(250,204,21,.18), transparent 60%),
+    linear-gradient(180deg,#020617,#000000);
+}
+
+/* NAVBAR GOLD BAR */
+.navbar{
+  background:
+    linear-gradient(90deg,#020617,#000000,#020617) !important;
+  border-bottom:1px solid rgba(250,204,21,.5);
+  box-shadow:0 0 40px rgba(250,204,21,.25);
+}
+
+/* Navbar brand */
+.navbar-brand{
+  background:var(--gold);
+  color:#020617 !important;
+  padding:8px 18px;
+  border-radius:12px;
+  font-weight:700;
+  box-shadow:0 0 18px rgba(250,204,21,.9);
+}
+
+/* Navbar buttons */
+.navbar .btn-main{
+  background:transparent !important;
+  color:#fde047 !important;
+  border:1px solid rgba(250,204,21,.6) !important;
+}
+
+.navbar .btn-main:hover{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  box-shadow:0 0 25px rgba(250,204,21,.9);
+}
+
+/* Navbar active */
+.navbar .btn-main.active{
+  background:var(--gold) !important;
+  color:#020617 !important;
+}
+
+/* ============================= */
+/*  GOLD OVERRIDE MASTER BLOCK   */
+/* ============================= */
+
+:root{
+  --gold:#facc15;
+}
+
+/* Force entire site background */
+html, body{
+  background:
+    radial-gradient(circle at top, rgba(250,204,21,.12), transparent 60%),
+    linear-gradient(180deg, #020617, #000000) !important;
+  color:#f8fafc !important;
+}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at center, rgba(250,204,21,.18), transparent 65%),
+    linear-gradient(180deg,#020617,#000000) !important;
+}
+
+/* NAVBAR */
+.navbar{
+  background:linear-gradient(90deg,#020617,#000000,#020617) !important;
+  border-bottom:1px solid rgba(250,204,21,.6) !important;
+  box-shadow:0 0 35px rgba(250,204,21,.35) !important;
+}
+
+/* BRAND */
+.navbar-brand{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  padding:8px 18px !important;
+  border-radius:14px !important;
+  box-shadow:0 0 25px rgba(250,204,21,.95) !important;
+  font-weight:700;
+}
+
+/* NAV BUTTONS */
+.navbar .btn-main{
+  background:transparent !important;
+  color:#fde047 !important;
+  border:1px solid rgba(250,204,21,.6) !important;
+}
+
+/* Hover */
+.navbar .btn-main:hover{
+  background:var(--gold) !important;
+  color:#020617 !important;
+  box-shadow:0 0 30px rgba(250,204,21,.9) !important;
+}
+
+/* Active */
+.navbar .btn-main.active{
+  background:var(--gold) !important;
+  color:#020617 !important;
+}
+
+/* Cards */
+.project-card, .badge-card{
+  background:linear-gradient(180deg,#020617,#000000) !important;
+  border:1px solid rgba(250,204,21,.4) !important;
+  box-shadow:0 0 40px rgba(250,204,21,.15) !important;
+}
+
+/* Headings */
+h1,h2,h3{
+  color:#fde047 !important;
 }
