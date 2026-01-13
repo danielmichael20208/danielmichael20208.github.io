@@ -487,3 +487,46 @@ footer {
   border-top:1px solid rgba(250,204,21,.5);
   box-shadow:0 -10px 40px rgba(250,204,21,.25);
 }
+
+/* ===============================
+   FINAL GOLD CONSISTENCY PATCH
+================================ */
+
+/* Logo pill / Daniel Michael button */
+.navbar-brand,
+.nav-logo,
+.brand-btn,
+.brand-pill {
+  background:#facc15 !important;
+  color:#020617 !important;
+  box-shadow:0 0 25px rgba(250,204,21,.9) !important;
+}
+
+/* All footers on all pages */
+footer,
+.footer,
+.site-footer {
+  background: linear-gradient(180deg,#020617,#000000) !important;
+  color:#facc15 !important;
+  border-top:1px solid rgba(250,204,21,.6) !important;
+  box-shadow:0 -15px 40px rgba(250,204,21,.35) !important;
+}
+
+footer p, footer span, footer a {
+  color:#facc15 !important;
+}
+
+/* Kill leftover cyan/blue glows */
+* {
+  --bs-primary:#facc15 !important;
+  --bs-info:#facc15 !important;
+  --accent:#facc15 !important;
+}
+
+/* Glow replacement */
+.glow,
+.blue-glow,
+.neon,
+.cyan-glow {
+  box-shadow:0 0 35px rgba(250,204,21,.45) !important;
+}
