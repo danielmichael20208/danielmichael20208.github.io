@@ -65,38 +65,55 @@
 const terminal = document.getElementById("terminal-command");
 const output = document.getElementById("terminal-output");
 
-const commands = {
-  help: `
-help        Show command list
-about       Who is Daniel
-skills      List skills
-projects    View GitHub
-contact     Contact info
-clear       Clear terminal
-`,
-  about: "Daniel Michael – Cybersecurity student, FTC Robotics programmer, Georgia Tech Work Study.",
-  skills: "Python, Java, HTML, CSS, Linux, Cybersecurity",
-  projects: "GitHub → https://github.com/danielmichael20208",
-  contact: "Email → Daniel.Michael20208@gmail.com",
-};
+function write(text){
+  output.innerHTML += text + "\n";
+  output.scrollTop = output.scrollHeight;
+}
 
-terminal.addEventListener("keydown", function(e){
+function banner(){
+  write("Daniel Michael Cyber Terminal v1.0");
+  write("Type 'help' to begin.");
+  write("------------------------------------");
+}
+banner();
+
+function showHelp(){
+  write(`
+help                 Show commands
+about                About Daniel
+skills               Show skills
+projects             GitHub link
+contact              Contact info
+run password         Run Password Checker
+clear                Clear terminal
+`);
+}
+
+function runPasswordChecker(){
+  write("Launching Password Checker...");
+  write("------------------------------------");
+
+  const testPasswords = ["123456","Password123","Cyber@2026","letmein"];
+  testPasswords.forEach(p=>{
+    const strong = p.length >= 10 && /[A-Z]/.test(p) && /[0-9]/.test(p) && /[^A-Za-z0-9]/.test(p);
+    write(p + " → " + (strong ? "STRONG" : "WEAK"));
+  });
+}
+
+terminal.addEventListener("keydown", e=>{
   if(e.key === "Enter"){
-    const cmd = terminal.value.trim();
+    const cmd = terminal.value.trim().toLowerCase();
     terminal.value = "";
+    write("$ " + cmd);
 
-    if(cmd === "clear"){
-      output.innerHTML = "";
-      return;
-    }
-
-    if(commands[cmd]){
-      output.innerHTML += "\n$ " + cmd + "\n" + commands[cmd] + "\n";
-    } else {
-      output.innerHTML += "\n$ " + cmd + "\nCommand not found\n";
-    }
-
-    output.scrollTop = output.scrollHeight;
+    if(cmd === "help") showHelp();
+    else if(cmd === "about") write("Daniel Michael – FTC Robotics programmer & Cybersecurity student.");
+    else if(cmd === "skills") write("Python, Java, Linux, Cybersecurity, Robotics Programming");
+    else if(cmd === "projects") write("https://github.com/danielmichael20208");
+    else if(cmd === "contact") write("Daniel.Michael20208@gmail.com");
+    else if(cmd === "run password") runPasswordChecker();
+    else if(cmd === "clear") output.innerHTML = "";
+    else write("Command not found.");
   }
 });
 </script>
