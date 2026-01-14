@@ -92,7 +92,7 @@ function write(line = "") {
 }
 
 // show a little banner on load
-write("DanielOS Cyber Terminal v1.1");
+write("DanielOS Cyber Terminal v1.2");
 write("Type 'help' to see available commands.");
 write("----------------------------------------");
 
@@ -103,10 +103,13 @@ about                       Who is Daniel
 skills                      List skills
 projects                    View GitHub link
 contact                     Contact info
+status                      Show system status summary
+logs                        Show combined security event log
 door                        Info about Arduino CyberDoor project
-door logs                   Show sample security logs
+door logs                   Show sample CyberDoor security logs
 python cyberdoor_logs.py    Simulate CyberDoor log script
 python password_analyzer.py Simulate Password Analyzer script
+python port_scanner.py      Simulate Port Scanner script
 clear                       Clear the terminal
 `);
 }
@@ -121,6 +124,18 @@ function showDoorInfo() {
   write("- Logs security events with levels like [INFO], [WARN], [ALERT]");
 }
 
+// === Mini-SIEM style status summary ===
+function showStatus() {
+  write("=== DanielOS System Status ===");
+  write("[OK] CyberDoor (Arduino access control)        : SIMULATED / HEALTHY");
+  write("[OK] Password Analyzer (Python)                : READY");
+  write("[OK] Port Scanner (Python)                     : READY");
+  write("[OK] Cyber Labs (TryHackMe, CTF practice)      : ACTIVE / IN PROGRESS");
+  write("[OK] GitHub Portfolio                          : ONLINE");
+  write("[INFO] All core tools operational. Use 'logs' to view recent events.");
+}
+
+// CyberDoor logs (physical security)
 function showDoorLogs() {
   const logs = [
     "[BOOT] 0s - CyberDoor v1 starting...",
@@ -149,6 +164,35 @@ function showDoorLogs() {
   write("Simulated CyberDoor security event log:");
   write("----------------------------------------");
   logs.forEach(line => write(line));
+}
+
+// === Combined SIEM-style global log view ===
+function showGlobalLogs() {
+  const events = [
+    // CyberDoor events
+    "[10:01:02][DOOR][ACCESS] Denied PIN attempt from keypad",
+    "[10:01:05][DOOR][ACCESS] Denied PIN attempt from keypad",
+    "[10:01:09][DOOR][ALERT ] SECURITY LOCKDOWN after 3 failures",
+
+    // Password analyzer events
+    "[10:02:15][PWA ][INFO  ] Password '123456' rated VERY WEAK",
+    "[10:02:17][PWA ][INFO  ] Password 'Cyber@2026' rated STRONG",
+    "[10:02:20][PWA ][WARN  ] User advised to enable 2FA",
+
+    // Port scanner events
+    "[10:04:01][SCAN][INFO  ] Scan started on host 127.0.0.1",
+    "[10:04:03][SCAN][OPEN  ] Port 22 (SSH) open",
+    "[10:04:03][SCAN][OPEN  ] Port 80 (HTTP) open",
+    "[10:04:03][SCAN][OPEN  ] Port 443 (HTTPS) open",
+    "[10:04:05][SCAN][INFO  ] Scan completed: 3 open ports detected"
+  ];
+
+  write("=== Combined Security Event Log (Simulated) ===");
+  write("Source tags: DOOR = CyberDoor, PWA = Password Analyzer, SCAN = Port Scanner");
+  write("------------------------------------------------------------");
+  events.forEach(line => write(line));
+  write("");
+  write("Tip: In a real setup, these logs would be streamed from devices and tools into a SIEM or logging server.");
 }
 
 // Password Analyzer simulation
@@ -191,6 +235,31 @@ function runPasswordAnalyzer() {
   write("Tip: Use a long passphrase with mixed characters, and never reuse passwords across sites.");
 }
 
+// Port Scanner simulation
+function runPortScanner() {
+  write("Running Port Scanner (simulated)...");
+  write("----------------------------------------");
+  write("Target: 127.0.0.1");
+  write("Ports scanned: 20-30, 80, 443");
+  write("");
+
+  const results = [
+    "[SCAN] Checking port 20 (FTP-DATA)... CLOSED",
+    "[SCAN] Checking port 21 (FTP)... CLOSED",
+    "[SCAN] Checking port 22 (SSH)... OPEN",
+    "[SCAN] Checking port 23 (Telnet)... CLOSED",
+    "[SCAN] Checking port 25 (SMTP)... CLOSED",
+    "[SCAN] Checking port 80 (HTTP)... OPEN",
+    "[SCAN] Checking port 443 (HTTPS)... OPEN"
+  ];
+
+  results.forEach(line => write(line));
+
+  write("");
+  write("Summary: 3 open ports detected (22, 80, 443).");
+  write("Note: This is a simulated scan. Real scans are done with Python or tools like nmap.");
+}
+
 // main command handler
 function handleCommand(rawCmd) {
   const cmd = rawCmd.trim();
@@ -211,12 +280,18 @@ function handleCommand(rawCmd) {
     write("GitHub → https://github.com/danielmichael20208");
   } else if (lower === "contact") {
     write("Email → Daniel.Michael20208@gmail.com");
+  } else if (lower === "status") {
+    showStatus();
+  } else if (lower === "logs") {
+    showGlobalLogs();
   } else if (lower === "door") {
     showDoorInfo();
   } else if (lower === "door logs" || lower === "python cyberdoor_logs.py") {
     showDoorLogs();
   } else if (lower === "python password_analyzer.py" || lower === "run password" || lower === "password analyzer") {
     runPasswordAnalyzer();
+  } else if (lower === "python port_scanner.py" || lower === "run scanner" || lower === "port scanner") {
+    runPortScanner();
   } else if (lower === "clear") {
     output.innerHTML = "";
   } else {
@@ -243,7 +318,6 @@ terminal.addEventListener("keydown", function(e) {
     }
   });
 </script>
-
 
 </body>
 </html>
