@@ -85,43 +85,150 @@ let currentDir = "/home/daniel";
 const terminal = document.getElementById("terminal-command");
 const output = document.getElementById("terminal-output");
 
-function write(t){ output.innerHTML += t + "\n"; output.scrollTop = output.scrollHeight; }
-
-write("DanielOS Cyber Console v2.0");
-write("Type 'help' to begin.");
-write("--------------------------------");
-
-function pwd(){ write(currentDir); }
-
-function ls(){
-  const parts = currentDir.split("/").filter(Boolean);
-  let dir = fileSystem["/"];
-  parts.forEach(p=>dir = dir[p]);
-  Object.keys(dir).forEach(f=>write(f));
+// helper to print to terminal
+function write(line = "") {
+  output.innerHTML += line + "\n";
+  output.scrollTop = output.scrollHeight;
 }
 
-function runProgram(name){
-  if(name === "password.py"){
-    write("Executing password.py");
-    ["123456","Cyber2026","Daniel!2026"].forEach(p=>{
-      const strong = p.length>9 && /[A-Z]/.test(p) && /[0-9]/.test(p) && /[^A-Za-z0-9]/.test(p);
-      write(p + " → " + (strong?"STRONG":"WEAK"));
-    });
-  } else write("Program not found.");
+// show a little banner on load
+write("DanielOS Cyber Terminal v1.1");
+write("Type 'help' to see available commands.");
+write("----------------------------------------");
+
+function showHelp() {
+  write(`
+help                        Show this help message
+about                       Who is Daniel
+skills                      List skills
+projects                    View GitHub link
+contact                     Contact info
+door                        Info about Arduino CyberDoor project
+door logs                   Show sample security logs
+python cyberdoor_logs.py    Simulate CyberDoor log script
+python password_analyzer.py Simulate Password Analyzer script
+clear                       Clear the terminal
+`);
 }
 
-terminal.addEventListener("keydown", e=>{
-  if(e.key==="Enter"){
-    const cmd = terminal.value.trim().toLowerCase();
-    terminal.value="";
-    write("$ " + cmd);
+function showDoorInfo() {
+  write("CyberDoor v1 - Arduino Security Access System");
+  write("Features:");
+  write("- Keypad PIN entry");
+  write("- Servo-based lock control");
+  write("- Green/Red LED indicators");
+  write("- Alarm and lockdown after 3 failed attempts");
+  write("- Logs security events with levels like [INFO], [WARN], [ALERT]");
+}
 
-    if(cmd==="help") write("ls | pwd | run password.py | clear");
-    else if(cmd==="pwd") pwd();
-    else if(cmd==="ls") ls();
-    else if(cmd.startsWith("run ")) runProgram(cmd.split(" ")[1]);
-    else if(cmd==="clear") output.innerHTML="";
-    else write("Command not found.");
+function showDoorLogs() {
+  const logs = [
+    "[BOOT] 0s - CyberDoor v1 starting...",
+    "[INFO] 0s - System armed - waiting for PIN input",
+    "[INFO] 5s - PIN entered, evaluating...",
+    "[DATA] Raw PIN: 9999",
+    "[ACCESS] 5s - ACCESS DENIED",
+    "[WARN] 5s - Failed attempts: 1",
+    "[INFO] 10s - PIN entered, evaluating...",
+    "[DATA] Raw PIN: 9999",
+    "[ACCESS] 10s - ACCESS DENIED",
+    "[WARN] 10s - Failed attempts: 2",
+    "[INFO] 15s - PIN entered, evaluating...",
+    "[DATA] Raw PIN: 9999",
+    "[ACCESS] 15s - ACCESS DENIED",
+    "[WARN] 15s - Failed attempts: 3",
+    "[ALERT] 15s - SECURITY LOCKDOWN ACTIVATED - 3 failed attempts",
+    "[INFO] 20s - Lockdown cycle complete, fail counter reset",
+    "[INFO] 30s - PIN entered, evaluating...",
+    "[DATA] Raw PIN: 1234",
+    "[ACCESS] 30s - ACCESS GRANTED",
+    "[INFO] 30s - Door unlocked",
+    "[INFO] 33s - Door auto-locked after timeout",
+    "[INFO] 33s - Door locked"
+  ];
+  write("Simulated CyberDoor security event log:");
+  write("----------------------------------------");
+  logs.forEach(line => write(line));
+}
+
+// Password Analyzer simulation
+function runPasswordAnalyzer() {
+  write("Running Password Analyzer (simulated)...");
+  write("----------------------------------------");
+  write("Rules checked:");
+  write("- Length >= 12 characters");
+  write("- Contains uppercase and lowercase letters");
+  write("- Contains numbers");
+  write("- Contains symbols");
+  write("- Avoids common / leaked passwords");
+  write("");
+
+  const samples = [
+    "123456",
+    "password123",
+    "Daniel2026",
+    "Cyber@2026",
+    "G!tHub_P0rtfolio2026"
+  ];
+
+  samples.forEach(pw => {
+    let score = 0;
+    if (pw.length >= 12) score++;
+    if (/[a-z]/.test(pw) && /[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+
+    let rating = "";
+    if (score <= 1) rating = "VERY WEAK";
+    else if (score === 2) rating = "WEAK";
+    else if (score === 3) rating = "GOOD";
+    else rating = "STRONG";
+
+    write(`"${pw}" → ${rating}`);
+  });
+
+  write("");
+  write("Tip: Use a long passphrase with mixed characters, and never reuse passwords across sites.");
+}
+
+// main command handler
+function handleCommand(rawCmd) {
+  const cmd = rawCmd.trim();
+  if (cmd === "") return;
+
+  // echo command
+  write("$ " + cmd);
+
+  const lower = cmd.toLowerCase();
+
+  if (lower === "help") {
+    showHelp();
+  } else if (lower === "about") {
+    write("Daniel Michael – Cybersecurity student, FTC Robotics programmer, and Georgia Tech Work Study.");
+  } else if (lower === "skills") {
+    write("Skills: Python, Java, HTML, CSS, Linux, Cybersecurity, Robotics Programming");
+  } else if (lower === "projects") {
+    write("GitHub → https://github.com/danielmichael20208");
+  } else if (lower === "contact") {
+    write("Email → Daniel.Michael20208@gmail.com");
+  } else if (lower === "door") {
+    showDoorInfo();
+  } else if (lower === "door logs" || lower === "python cyberdoor_logs.py") {
+    showDoorLogs();
+  } else if (lower === "python password_analyzer.py" || lower === "run password" || lower === "password analyzer") {
+    runPasswordAnalyzer();
+  } else if (lower === "clear") {
+    output.innerHTML = "";
+  } else {
+    write("Command not found. Type 'help' to see available commands.");
+  }
+}
+
+terminal.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    const cmd = terminal.value;
+    terminal.value = "";
+    handleCommand(cmd);
   }
 });
 </script>
