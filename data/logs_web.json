@@ -1,0 +1,27 @@
+[
+  {
+    "timestamp": "2026-01-13T10:01:02Z",
+    "source": "door",
+    "component": "CyberDoor",
+    "level": "ACCESS",
+    "event_type": "ACCESS_DENIED",
+    "message": "PIN entry denied.",
+    "context": {
+      "fail_count": 2,
+      "max_failures": 3
+    }
+  },
+  {
+    "timestamp": "2026-01-13T10:04:03Z",
+    "source": "scan",
+    "component": "PortScanner",
+    "level": "OPEN",
+    "event_type": "PORT_OPEN",
+    "message": "Port 22 (SSH) is open.",
+    "context": {
+      "target": "127.0.0.1",
+      "port": 22,
+      "service": "SSH"
+    }
+  }
+]
