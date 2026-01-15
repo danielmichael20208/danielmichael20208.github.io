@@ -299,6 +299,19 @@ function handleCommand(rawCmd) {
     runPasswordAnalyzer();
   } else if (lower === "python port_scanner.py" || lower === "run scanner" || lower === "port scanner") {
     runPortScanner();
+  } else if (lower === "scan" || lower === "scanner" || lower === "real scanner") {
+    write("Launching Real Port Scanner Mode...");
+    write("==================================");
+    write("");
+    write("Run this locally in your terminal:");
+    write("");
+    write("   python port_scanner.py");
+    write("");
+    write("When finished, run:");
+    write("");
+    write("   logs");
+    write("");
+    write("to view SIEM results from data/logs_web.json");
   } else if (lower === "clear") {
     output.innerHTML = "";
   } else {
