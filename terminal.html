@@ -111,6 +111,8 @@ python cyberdoor_logs.py    Simulate CyberDoor log script
 python password_analyzer.py Simulate Password Analyzer script
 python port_scanner.py      Simulate Port Scanner script
 clear                       Clear the terminal
+logs export csv             Download logs as CSV
+logs export jsonl           Download logs as JSON Lines
 `);
 }
 
@@ -291,6 +293,10 @@ function handleCommand(rawCmd) {
     showStatus();
   } else if (lower === "logs") {
     showGlobalLogs();
+  } else if (lower === "logs export csv") {
+  exportLogsCSV();
+  } else if (lower === "logs export jsonl") {
+  exportLogsJSONL();
   } else if (lower === "door") {
     showDoorInfo();
   } else if (lower === "door logs" || lower === "python cyberdoor_logs.py") {
@@ -317,6 +323,69 @@ function handleCommand(rawCmd) {
   } else {
     write("Command not found. Type 'help' to see available commands.");
   }
+}
+
+async function exportLogsCSV() {
+  write("Exporting logs as CSV...");
+
+  try {
+    const response = await fetch("data/logs_web.json?" + Date.now());
+    const events = await response.json();
+
+    if (!Array.isArray(events) || events.length === 0) {
+      write("[INFO] No logs to export.");
+      return;
+    }
+
+    // Build CSV
+    let csv = "timestamp,source,level,event_type,message\n";
+    events.forEach(ev => {
+      csv += `"${ev.timestamp}","${ev.source}","${ev.level}","${ev.event_type}","${ev.message}"\n`;
+    });
+
+    // Download
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    triggerDownload(url, "logs_export.csv");
+
+    write("[OK] CSV export complete → logs_export.csv downloaded.");
+  } catch (err) {
+    write("[ERROR] CSV export failed: " + err.message);
+  }
+}
+
+async function exportLogsJSONL() {
+  write("Exporting logs as JSONL...");
+
+  try {
+    const response = await fetch("data/logs_web.json?" + Date.now());
+    const events = await response.json();
+
+    if (!Array.isArray(events) || events.length === 0) {
+      write("[INFO] No logs to export.");
+      return;
+    }
+
+    let jsonl = events.map(ev => JSON.stringify(ev)).join("\n");
+
+    const blob = new Blob([jsonl], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    triggerDownload(url, "logs_export.jsonl");
+
+    write("[OK] JSONL export complete → logs_export.jsonl downloaded.");
+  } catch (err) {
+    write("[ERROR] JSONL export failed: " + err.message);
+  }
+}
+
+function triggerDownload(url, filename) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 terminal.addEventListener("keydown", function(e) {
